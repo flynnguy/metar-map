@@ -6,9 +6,7 @@ import utime
 import urequests as requests
 
 pin = 15                    # Pin the data line is connected to
-num_lights = 2              # Number of LED Lights
 wind_threshold = 15         # Knots of windspeed
-daytime_dimming = True
 blink_speed = 0.8
 metar_update_frequency = 500
 
@@ -74,7 +72,7 @@ def get_metars():
 stations = get_metars()
 last_fetched = utime.time()  # The number of seconds, as an integer, since power on
 while True:
-    np = neopixel.NeoPixel(machine.Pin(pin), num_lights)  # Initialize neopixels
+    np = neopixel.NeoPixel(machine.Pin(pin), len(airports))  # Initialize neopixels
     # Check if we want to refresh the metars
     if (utime.time() - last_fetched) > metar_update_frequency:
         stations = get_metars()
