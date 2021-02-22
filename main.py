@@ -2,18 +2,17 @@ import machine
 import neopixel
 import time
 import utime
+import ujson
 
 import urequests as requests
+
+with open('airports.json') as fp:
+    airports = ujson.loads(fp.read())
 
 pin = 15                    # Pin the data line is connected to
 wind_threshold = 15         # Knots of windspeed
 blink_speed = 0.8
 metar_update_frequency = 500
-
-airports = {
-    'KEEN': 0,
-    'KCON': 1,
-}
 
 flight_category_rgb = {
     'WHITE': (255, 255, 255),   # White for Lightning

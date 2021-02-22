@@ -35,16 +35,17 @@ in main.py at the top of the file. If you use a different pin, you'll need to
 change this.
 
 There are some other options but the next thing you'll want to change is the
-airports dictionary. The first part is the airport identifier, the 2nd is the
-location of the pixel (0 based) in the chain. So for example:
+airports dictionary. This is the `airports.json` file. The first part is the
+airport identifier, the 2nd is the location of the pixel (0 based) in the chain.
+So for example:
 ```
-airports = {
-    'KEEN': 0,
-    'KCON': 1,
+{
+    "KEEN": 0,
+    "KCON": 1
 }
 ```
 Defines 2 airports, the first is `KEEN` which is the first light, the second
 is `KCON` which is the 2nd light. The order in the dict doesn't matter but
-the number value does.
+the number value does. Also this needs to be valid JSON.
 
 I would suggest wiring up just one pixel first and make sure everything is working.
